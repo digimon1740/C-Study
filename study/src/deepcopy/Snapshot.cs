@@ -22,13 +22,13 @@ namespace study
             return this.originals;
         }
 
-        public static List<T> CloneList<T>(List<T> oldList)  
-        {  
-            BinaryFormatter formatter = new BinaryFormatter();  
-            MemoryStream stream = new MemoryStream();  
+        public static List<T> CloneList<T>(List<T> oldList)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            MemoryStream stream = new MemoryStream();
             formatter.Serialize(stream, oldList);
-            stream.Position = 0;  
-            return (List<T>)formatter.Deserialize(stream);      
+            stream.Position = 0;
+            return (List<T>)formatter.Deserialize(stream);
         }
 
         public static void Main(string[] args)
@@ -44,13 +44,15 @@ namespace study
             data.Add(6);
             data.Add(7);
 
-            data.ForEach((int obj) => {
+            data.ForEach((int obj) =>
+            {
                 Console.WriteLine("Data : {0}", obj);
             });
 
             List<int> restores = snapshot.Restore();
-            restores.ForEach((int obj) => {
-                Console.WriteLine("Restore : {0}", obj);    
+            restores.ForEach((int obj) =>
+            {
+                Console.WriteLine("Restore : {0}", obj);
             });
         }
     }
